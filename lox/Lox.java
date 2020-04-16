@@ -68,4 +68,19 @@ public class Lox {
       System.out.println(token);
     }
   }
+
+  // Generates and prints an error message given a line and
+  // a message to print. (A wrapper around `report`.)
+  static void error(int line, String message) {
+    report(line, "", message);
+  }
+
+  // Actually print the error message with the line, the message,
+  // and a variable "where" that I don't know about yet.
+  // TODO: Figure out what "where" is for.
+  private static void report(int line, String where, String message) {
+    System.err.println(
+        "[line " + line + "] Error" + where + ": " + message);
+    hadError = true;
+  }
 }
