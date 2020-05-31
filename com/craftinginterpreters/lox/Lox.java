@@ -11,7 +11,9 @@ import java.util.List;
 public class Lox {
   // Whether an error occurred while running the program.
   // This will be used to kill a program run from a file.
+  private static final Interpreter interpreter = new Interpreter();
   static boolean hadError = false;
+  static boolean hadRuntimeError = false;
 
   // The entry-point to our interpreter.
   // If `jlox` is called from the command line with:
@@ -38,6 +40,7 @@ public class Lox {
     run(new String(bytes, Charset.defaultCharset()));
 
     if (hadError) System.exit(65);
+    if (hadRuntimeError) System.exit(70);
   }
 
   // Create a REPL by reading the stream from system input
@@ -73,7 +76,7 @@ public class Lox {
     // Stop if there was a syntax error.
     if (hadError) return;
 
-    System.out.println(new AstPrinter().print(expression));
+    interpreter.interpret(expression);
   }
 
   // Generates and prints an error message given a line and
@@ -96,5 +99,10 @@ public class Lox {
     } else {
       report(token.line, " at '" + token.lexeme + "'", message);
     }
+  }
+
+  static void runtimeError(RuntimeError error) {
+    System.err.println(error.getMessage() + "\n[line" + error.token.line + "]");
+    hadRuntimeError = true;
   }
 }
