@@ -33,9 +33,14 @@ JC = javac
 # CLASSES is a macro consisting of 4 words (one for each java source file)
 #
 CLASSES = \
-        lox/Lox.java
+				com/craftinginterpreters/lox/Expr.java \
+				com/craftinginterpreters/lox/AstPrinter.java \
+				com/craftinginterpreters/lox/TokenType.java \
+				com/craftinginterpreters/lox/Token.java \
+				com/craftinginterpreters/lox/Scanner.java \
+				com/craftinginterpreters/lox/Parser.java \
+        com/craftinginterpreters/lox/Lox.java
 
-#
 # the default make target entry
 #
 default: classes
@@ -53,4 +58,5 @@ classes: $(CLASSES:.java=.class)
 # RM is a predefined macro in make (RM = rm -f)
 #
 clean:
-	$(RM) *.class
+	$(RM) com/craftinginterpreters/lox/*.class
+	$(RM) com/craftinginterpreters/tool/*.class

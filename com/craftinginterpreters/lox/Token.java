@@ -1,5 +1,7 @@
 package com.craftinginterpreters.lox;
 
+import com.craftinginterpreters.lox.TokenType;
+
 class Token {
   // Declare constants to be used in this class
   final TokenType type;
@@ -18,6 +20,6 @@ class Token {
   // Override the `String#toString` method to
   // customize how we display the Token
   public String toString() {
-    return type + " " + lexeme + " " + literal;
+    return type + " " + lexeme + " " + literal + " " + line;
   }
 }

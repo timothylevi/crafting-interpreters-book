@@ -7,3 +7,5 @@ I was able to get the ["Hello World" program][source-hello-world-java] working w
 [ci-introduction]: http://craftinginterpreters.com/introduction.html#challenges
 [source-hello-world-java]: ./HelloWorld.java
 [resource-hello-world]: https://stackoverflow.com/questions/2360995/how-do-i-compile-and-run-a-program-in-java-on-my-mac
+
+Ended here: http://craftinginterpreters.com/evaluating-expressions.html
